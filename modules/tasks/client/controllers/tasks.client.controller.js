@@ -18,7 +18,9 @@
     vm.remove = remove;
     vm.save = save;
 
-    console.log('inside taskcontroller funciton');
+    $scope.types = ["public", "private"];
+
+    //console.log('inside taskcontroller funciton');
 
     // Remove existing Task
     function remove() {

@@ -5,16 +5,25 @@
   <div class="list-group">
     <a ng-repeat="task in vm.tasks"
        ui-sref="tasks.view({ taskId: task._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="task.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="task.user" ng-bind="task.user.displayName"></span>
-        <span ng-if="!task.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="task.name"></h4>
+       class="list-group-item">      
+      <h4 class="list-group-item-heading" ng-bind="task.title"></h4>
+      <h5 class="list-group-item-heading" ng-bind="task.deadline"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.description"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.tasktype"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.created"></h5>
     </a>
+
+    <!--
+      <div ng-repeat="task in vm.tasks"
+        ui-sref="tasks.view({ taskId: task._id })"
+        class="list-group-item">      
+        <h4 class="list-group-item-heading" ng-bind="task.title"></h4>
+        <h5 class="list-group-item-heading" ng-bind="task.deadline"></h5>
+        <h5 class="list-group-item-heading" ng-bind="task.description"></h5>
+        <h5 class="list-group-item-heading" ng-bind="task.tasktype"></h5>
+        <h5 class="list-group-item-heading" ng-bind="task.created"></h5>
+      </div>
+    -->
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.tasks.$resolved && !vm.tasks.length">
     No Tasks yet, why don't you <a ui-sref="tasks.create">create one</a>?

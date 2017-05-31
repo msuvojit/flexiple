@@ -12,7 +12,6 @@ var mongoose = require('mongoose'),
 var TaskSchema = new Schema({
   title: {
     type: String,
-    default: '',
     required: 'Please fill Task name',
     trim: true
   },
@@ -26,7 +25,6 @@ var TaskSchema = new Schema({
   },
   tasktype: {
     type: String,
-    default: 'private task',
   },
   created: {
     type: Date,
