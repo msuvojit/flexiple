@@ -18,6 +18,8 @@
     vm.remove = remove;
     vm.save = save;
 
+    console.log('inside taskcontroller funciton');
+
     // Remove existing Task
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -27,6 +29,7 @@
 
     // Save Task
     function save(isValid) {
+      console.log(isValid);
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.taskForm');
         return false;
@@ -36,6 +39,7 @@
       if (vm.task._id) {
         vm.task.$update(successCallback, errorCallback);
       } else {
+        console.log("inside else condition");
         vm.task.$save(successCallback, errorCallback);
       }
 
@@ -46,6 +50,7 @@
       }
 
       function errorCallback(res) {
+        console.log(res);
         vm.error = res.data.message;
       }
     }

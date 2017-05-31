@@ -25,10 +25,10 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/tasks',
-      permissions: ['get', 'post']
+      permissions: '*'
     }, {
       resources: '/api/tasks/:taskId',
-      permissions: ['get']
+      permissions: '*'
     }]
   }, {
     roles: ['guest'],

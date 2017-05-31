@@ -7,6 +7,7 @@ var tasksPolicy = require('../policies/tasks.server.policy'),
   tasks = require('../controllers/tasks.server.controller');
 
 module.exports = function(app) {
+  console.log("inside routes function");
   // Tasks Routes
   app.route('/api/tasks').all(tasksPolicy.isAllowed)
     .get(tasks.list)

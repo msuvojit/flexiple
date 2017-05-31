@@ -13,6 +13,7 @@ var path = require('path'),
  * Create a Task
  */
 exports.create = function(req, res) {
+  console.log("inside create function");
   var task = new Task(req.body);
   task.user = req.user;
 
@@ -50,6 +51,7 @@ exports.update = function(req, res) {
   task = _.extend(task, req.body);
 
   task.save(function(err) {
+    console.log("inside save function");
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
