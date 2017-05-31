@@ -39,6 +39,7 @@ var validateLocalStrategyEmail = function (email) {
  * - not begin or end with "."
  */
 
+
 var validateUsername = function(username) {
   var usernameRegex = /^(?=[\w.-]+$)(?!.*[._-]{2})(?!\.)(?!.*\.$).{3,34}$/;
   return (
@@ -46,6 +47,7 @@ var validateUsername = function(username) {
     (username && usernameRegex.test(username) && config.illegalUsernames.indexOf(username) < 0)
   );
 };
+
 
 /**
  * User Schema
@@ -78,6 +80,7 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
+
   username: {
     type: String,
     unique: 'Username already exists',
@@ -86,6 +89,7 @@ var UserSchema = new Schema({
     lowercase: true,
     trim: true
   },
+
   password: {
     type: String,
     default: ''
