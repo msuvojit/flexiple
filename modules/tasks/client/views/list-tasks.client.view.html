@@ -1,35 +1,23 @@
 <section>
   
   <div class="page-header text-center">
-    <a class="btn btn-lg btn-primary pull-left" ui-sref="tasks.publiclist">View public tasks</a>
+    <a class="btn btn-lg btn-primary pull-left" ui-sref="tasks.publicList">View public tasks</a>
     <a class="btn btn-lg btn-primary pull-right" ui-sref="tasks.create">Post a task</a>
-    <!--
-    <a ng-href="/tasks/create">Post job</a>
-    -->
+    
     <h2>My Tasks</h2>
   </div>
   <div class="list-group">
     <a ng-repeat="task in vm.tasks"
-       ui-sref="tasks.view({ taskId: task._id })"
-       class="list-group-item">      
+      
+       class="list-group-item" style="margin: 10px">      
       <h4 class="list-group-item-heading" ng-bind="task.title"></h4>
       <h5 class="list-group-item-heading" ng-bind="task.deadline"></h5>
       <h5 class="list-group-item-heading" ng-bind="task.description"></h5>
       <h5 class="list-group-item-heading" ng-bind="task.tasktype"></h5>
       <h5 class="list-group-item-heading" ng-bind="task.created"></h5>
+      
     </a>
 
-    <!--
-      <div ng-repeat="task in vm.tasks"
-        ui-sref="tasks.view({ taskId: task._id })"
-        class="list-group-item">      
-        <h4 class="list-group-item-heading" ng-bind="task.title"></h4>
-        <h5 class="list-group-item-heading" ng-bind="task.deadline"></h5>
-        <h5 class="list-group-item-heading" ng-bind="task.description"></h5>
-        <h5 class="list-group-item-heading" ng-bind="task.tasktype"></h5>
-        <h5 class="list-group-item-heading" ng-bind="task.created"></h5>
-      </div>
-    -->
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.tasks.$resolved && !vm.tasks.length">
     No Tasks yet, why don't you <a ui-sref="tasks.create">create one</a>?

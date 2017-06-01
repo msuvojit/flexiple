@@ -26,7 +26,7 @@
       .state('tasks.publicList', {
         url: '/public',
         templateUrl: 'modules/tasks/client/views/public-tasks.client.view.html',
-        controller: 'TasksListController',
+        controller: 'PublicTasksController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Public Tasks List'

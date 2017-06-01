@@ -1,3 +1,26 @@
 <section>
-  Hello World!
+  
+  <div class="page-header text-center">
+    <a class="btn btn-lg btn-primary pull-left" ui-sref="tasks.list">View your tasks</a>
+
+    <a class="btn btn-lg btn-primary pull-right" ui-sref="tasks.create">Post a task</a>   
+    
+    <h2>My Tasks</h2>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="task in vm.tasks"
+       class="list-group-item">      
+      <h4 class="list-group-item-heading" ng-bind="task.title"></h4>
+      <h5 class="list-group-item-heading" ng-bind="task.deadline"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.description"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.tasktype"></h5>
+      <h5 class="list-group-item-heading" ng-bind="task.created"></h5>
+    </a>
+    
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.tasks.$resolved && !vm.tasks.length">
+    No Tasks yet, why don't you <a ui-sref="tasks.create">create one</a>?
+  </div>
+
 </section>
+
