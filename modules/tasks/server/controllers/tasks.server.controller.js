@@ -13,7 +13,6 @@ var path = require('path'),
  * Create a Task
  */
 exports.create = function(req, res) {
-  console.log("inside create function");
   var task = new Task(req.body);
   task.user = req.user;
 
@@ -51,7 +50,6 @@ exports.update = function(req, res) {
   task = _.extend(task, req.body);
 
   task.save(function(err) {
-    console.log("inside save function");
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -80,10 +78,25 @@ exports.delete = function(req, res) {
 };
 
 /**
- * List of Tasks
+ * List of Tasks for the specific user
  */
 exports.list = function(req, res) {
-  Task.find().sort('-created').populate('user', 'displayName').exec(function(err, tasks) {
+  Task.find({ 'user': req.user._id.toString() }).sort('-created').populate('user', 'displayName').exec(function(err, tasks) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(tasks);
+    }
+  });
+};
+
+/**
+ * List of all public tasks posted by all user
+ */
+exports.publicList = function(req, res) {
+  Task.find({ 'tasktype': 'public' }).sort('-created').populate('user', 'displayName').exec(function(err, tasks) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

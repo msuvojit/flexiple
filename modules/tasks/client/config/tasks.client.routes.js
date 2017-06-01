@@ -23,6 +23,15 @@
           pageTitle: 'Tasks List'
         }
       })
+      .state('tasks.publicList', {
+        url: '/public',
+        templateUrl: 'modules/tasks/client/views/public-tasks.client.view.html',
+        controller: 'TasksListController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Public Tasks List'
+        }
+      })
       .state('tasks.create', {
         url: '/create',
         templateUrl: 'modules/tasks/client/views/form-task.client.view.html',

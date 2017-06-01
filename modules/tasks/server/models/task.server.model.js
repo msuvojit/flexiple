@@ -16,7 +16,7 @@ var TaskSchema = new Schema({
     trim: true
   },
   deadline: {
-    type: Date,
+    type: Date
   },
   description: {
     type: String,
@@ -24,7 +24,7 @@ var TaskSchema = new Schema({
     trim: true
   },
   tasktype: {
-    type: String,
+    type: String
   },
   created: {
     type: Date,

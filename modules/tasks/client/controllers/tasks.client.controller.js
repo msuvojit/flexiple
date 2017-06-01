@@ -18,9 +18,7 @@
     vm.remove = remove;
     vm.save = save;
 
-    $scope.types = ["public", "private"];
-
-    //console.log('inside taskcontroller funciton');
+    $scope.types = ['public', 'private'];
 
     // Remove existing Task
     function remove() {
@@ -41,7 +39,6 @@
       if (vm.task._id) {
         vm.task.$update(successCallback, errorCallback);
       } else {
-        console.log("inside else condition");
         vm.task.$save(successCallback, errorCallback);
       }
 

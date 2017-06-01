@@ -27,6 +27,9 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/tasks',
       permissions: '*'
     }, {
+      resources: '/api/tasks/public',
+      permissions: '*'
+    }, {
       resources: '/api/tasks/:taskId',
       permissions: '*'
     }]
@@ -37,6 +40,9 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/tasks/:taskId',
+      permissions: ['get']
+    }, {
+      resources: '/api/tasks/public',
       permissions: ['get']
     }]
   }]);

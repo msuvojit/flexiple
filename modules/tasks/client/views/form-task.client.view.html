@@ -1,6 +1,6 @@
 <section>
-  <div class="page-header">
-    <h1>{{vm.task._id ? 'Edit Task' : 'New Task'}}</h1>
+  <div class="page-header text-center">
+    <h2>{{vm.task._id ? 'Edit Task' : 'New Task'}}</h2>
   </div>
  <div class="row">
     <form name="vm.form.taskForm" class="form-horizontal" ng-submit="vm.save(vm.form.taskForm.$valid)" novalidate>
@@ -28,18 +28,15 @@
             <p class="help-block error-text" ng-message="required">Task description is required.</p>
           </div>
           -->
-        </div>
-        
+        </div>        
 
         <div class="form-group row">
           <label for="task-type" class="col-2 col-form-label">Task Type</label>          
-          <select class="form-control" ng-model="vm.task.tasktype" ng-options="x for x in types">
-          </select>                    
-        </div>
-        
+          <select class="form-control" ng-model="vm.task.tasktype" ng-options="x for x in types"></select>                    
+        </div>        
 
         <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.task._id ? 'Update' : 'Create'}}</button>
+          <button type="submit" class="btn btn-primary">{{vm.task._id ? 'Update' : 'Create'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>
